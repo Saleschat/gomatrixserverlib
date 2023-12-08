@@ -6,8 +6,8 @@ import (
 	"fmt"
 	"io"
 
-	"github.com/matrix-org/gomatrixserverlib"
-	"github.com/matrix-org/gomatrixserverlib/spec"
+	"github.com/Saleschat/gomatrixserverlib"
+	"github.com/Saleschat/gomatrixserverlib/spec"
 	"github.com/tidwall/gjson"
 )
 

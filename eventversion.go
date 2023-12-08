@@ -4,7 +4,7 @@ import (
 	"context"
 	"fmt"
 
-	"github.com/matrix-org/gomatrixserverlib/spec"
+	"github.com/Saleschat/gomatrixserverlib/spec"
 	"github.com/tidwall/gjson"
 	"github.com/tidwall/sjson"
 )

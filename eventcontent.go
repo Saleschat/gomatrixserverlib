@@ -22,7 +22,7 @@ import (
 	"strconv"
 	"strings"
 
-	"github.com/matrix-org/gomatrixserverlib/spec"
+	"github.com/Saleschat/gomatrixserverlib/spec"
 	"golang.org/x/crypto/ed25519"
 )
 

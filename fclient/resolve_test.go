@@ -7,7 +7,7 @@ import (
 	"reflect"
 	"testing"
 
-	"github.com/matrix-org/gomatrixserverlib/spec"
+	"github.com/Saleschat/gomatrixserverlib/spec"
 	"github.com/miekg/dns"
 	"gopkg.in/h2non/gock.v1"
 )

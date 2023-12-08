@@ -6,8 +6,8 @@ import (
 	"testing"
 	"unicode"
 
+	"github.com/Saleschat/gomatrixserverlib/spec"
 	"github.com/google/go-cmp/cmp"
-	"github.com/matrix-org/gomatrixserverlib/spec"
 )
 
 const emptyRespStateResponse = `{"pdus":[],"auth_chain":[]}`

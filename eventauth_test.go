@@ -19,7 +19,7 @@ import (
 	"encoding/json"
 	"testing"
 
-	"github.com/matrix-org/gomatrixserverlib/spec"
+	"github.com/Saleschat/gomatrixserverlib/spec"
 )
 
 func stateNeededEquals(a, b StateNeeded) bool {

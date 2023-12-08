@@ -4,8 +4,8 @@ import (
 	"context"
 	"testing"
 
-	"github.com/matrix-org/gomatrixserverlib"
-	"github.com/matrix-org/gomatrixserverlib/spec"
+	"github.com/Saleschat/gomatrixserverlib"
+	"github.com/Saleschat/gomatrixserverlib/spec"
 )
 
 func UserIDForSenderTest(roomID spec.RoomID, senderID spec.SenderID) (*spec.UserID, error) {

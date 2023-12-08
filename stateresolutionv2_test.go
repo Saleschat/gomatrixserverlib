@@ -18,7 +18,7 @@ import (
 	"sort"
 	"testing"
 
-	"github.com/matrix-org/gomatrixserverlib/spec"
+	"github.com/Saleschat/gomatrixserverlib/spec"
 )
 
 var (

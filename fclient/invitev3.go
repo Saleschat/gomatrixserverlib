@@ -3,7 +3,7 @@ package fclient
 import (
 	"encoding/json"
 
-	"github.com/matrix-org/gomatrixserverlib"
+	"github.com/Saleschat/gomatrixserverlib"
 )
 
 func NewInviteV3Request(event gomatrixserverlib.ProtoEvent, version gomatrixserverlib.RoomVersion, state []gomatrixserverlib.InviteStrippedState) (
