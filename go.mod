@@ -1,4 +1,4 @@
-module github.com/matrix-org/gomatrixserverlib
+module github.com/Saleschat/gomatrixserverlib
 
 require (
 	github.com/google/go-cmp v0.5.9
