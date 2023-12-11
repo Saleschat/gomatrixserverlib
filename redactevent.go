@@ -175,6 +175,7 @@ func redactEventJSON[T unredactableEvent](eventJSON []byte, unredactableEvent T,
 		}
 
 		for _, contentKey := range keepContentFields {
+			logger.Info(contentKey)
 			val, ok := unredactableEvent.GetContent()[contentKey]
 			if ok {
 				newContent[contentKey] = val
