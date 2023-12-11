@@ -185,6 +185,11 @@ func redactEventJSON[T unredactableEvent](eventJSON []byte, unredactableEvent T,
 	// Replace the content with our new filtered content.
 	// This will zero out any keys that weren't copied in the loop above.
 	unredactableEvent.SetContent(newContent)
+
+	logger.WithFields(logrus.Fields{
+		"new_content": unredactableEvent.GetContent(),
+	}).Info("New content after redaction")
+
 	// Return the redacted event encoded as JSON.
 	return json.Marshal(&unredactableEvent)
 }
