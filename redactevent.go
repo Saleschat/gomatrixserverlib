@@ -74,7 +74,8 @@ var (
 		"m.room.power_levels":       {"ban", "events", "events_default", "kick", "redact", "state_default", "users", "users_default"},
 		"m.room.aliases":            {"aliases"},
 		"m.room.history_visibility": {"history_visibility"},
-		"m.room.message":            {},
+		// Empty string just means that delete everything inside the content object
+		"m.room.message": {""},
 	}
 	unredactableContentFieldsV2 = map[string][]string{
 		"m.room.member":             {"membership"},
@@ -82,7 +83,7 @@ var (
 		"m.room.join_rules":         {"join_rule"},
 		"m.room.power_levels":       {"ban", "events", "events_default", "kick", "redact", "state_default", "users", "users_default"},
 		"m.room.history_visibility": {"history_visibility"},
-		"m.room.message":            {},
+		"m.room.message":            {""},
 	}
 	unredactableContentFieldsV3 = map[string][]string{
 		"m.room.member":             {"membership"},
@@ -90,7 +91,7 @@ var (
 		"m.room.join_rules":         {"join_rule", "allow"},
 		"m.room.power_levels":       {"ban", "events", "events_default", "kick", "redact", "state_default", "users", "users_default"},
 		"m.room.history_visibility": {"history_visibility"},
-		"m.room.message":            {},
+		"m.room.message":            {""},
 	}
 	unredactableContentFieldsV4 = map[string][]string{
 		"m.room.member":             {"membership", "join_authorised_via_users_server"},
@@ -98,7 +99,7 @@ var (
 		"m.room.join_rules":         {"join_rule", "allow"},
 		"m.room.power_levels":       {"ban", "events", "events_default", "kick", "redact", "state_default", "users", "users_default"},
 		"m.room.history_visibility": {"history_visibility"},
-		"m.room.message":            {},
+		"m.room.message":            {""},
 	}
 	unredactableContentFieldsV5 = map[string][]string{
 		"m.room.member":             {"membership", "join_authorised_via_users_server"},
@@ -107,7 +108,7 @@ var (
 		"m.room.power_levels":       {"ban", "events", "events_default", "kick", "redact", "state_default", "users", "users_default", "invite"},
 		"m.room.history_visibility": {"history_visibility"},
 		"m.room.redaction":          {"redacts"},
-		"m.room.message":            {},
+		"m.room.message":            {""},
 	}
 )
 
