@@ -1,12 +1,9 @@
 package gomatrixserverlib
 
 import (
-	"context"
 	"encoding/json"
 
 	"github.com/Saleschat/gomatrixserverlib/spec"
-	"github.com/matrix-org/util"
-	"github.com/sirupsen/logrus"
 )
 
 // For satisfying "Upon receipt of a redaction event, the server must strip off any keys not in the following list:"
@@ -156,9 +153,6 @@ type unredactableEvent interface {
 }
 
 func redactEventJSON[T unredactableEvent](eventJSON []byte, unredactableEvent T, eventTypeToKeepContentFields map[string][]string) ([]byte, error) {
-
-	logger := util.GetLogger(context.Background())
-
 	// Unmarshalling into a struct will discard any extra fields from the event.
 	if err := json.Unmarshal(eventJSON, &unredactableEvent); err != nil {
 		return nil, err
@@ -169,18 +163,7 @@ func redactEventJSON[T unredactableEvent](eventJSON []byte, unredactableEvent T,
 		// An unredactable content entry with no provided fields should keep all fields.
 		newContent = unredactableEvent.GetContent()
 	} else {
-
-		logger.WithFields(logrus.Fields{
-			"type":    unredactableEvent.GetType(),
-			"content": unredactableEvent.GetContent(),
-		}).Info("event to be redacted has the following content and type")
-
-		if unredactableEvent.GetType() == "m.room.message" {
-			keepContentFields = append(keepContentFields, "content")
-		}
-
 		for _, contentKey := range keepContentFields {
-			logger.Info(contentKey)
 			val, ok := unredactableEvent.GetContent()[contentKey]
 			if ok {
 				newContent[contentKey] = val
@@ -191,14 +174,6 @@ func redactEventJSON[T unredactableEvent](eventJSON []byte, unredactableEvent T,
 	// Replace the content with our new filtered content.
 	// This will zero out any keys that weren't copied in the loop above.
 	unredactableEvent.SetContent(newContent)
-
-	if unredactableEvent.GetType() == "m.room.message" {
-		logger.WithFields(logrus.Fields{
-			"new_content": unredactableEvent.GetContent(),
-			"type":        unredactableEvent.GetType(),
-		}).Info("New content after redaction")
-	}
-
 	// Return the redacted event encoded as JSON.
 	return json.Marshal(&unredactableEvent)
 }
